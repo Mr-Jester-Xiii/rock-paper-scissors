@@ -9,20 +9,28 @@ function getComputerChoice() {
 
   switch (randNum) {
     case 1:
-      computer = "Rock";
+      computerChoice = "Rock";
       break;
     case 2:
-      computer = "Paper";
+      computerChoice = "Paper";
       break;
     case 3:
-      computer = "Scissors";
+      computerChoice = "Scissors";
       break;
   }
 
-  console.log(computer);
+  console.log(computerChoice);
+}
+
+function getPlayerChoice() {
+    playerEntry = prompt('Rock, Paper or Scissors?', '');
+    console.log(playerChoice);
+
 }
 
 getComputerChoice();
+getPlayerChoice();
+
 
 
 
