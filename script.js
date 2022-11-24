@@ -23,14 +23,23 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    playerEntry = prompt('Rock, Paper or Scissors?', '');
+    playerChoice = prompt('Rock, Paper or Scissors?', '');
     console.log(playerChoice);
 
 }
 
-getComputerChoice();
-getPlayerChoice();
+function playRound(playerChoice, computerChoice) {
+    if (computerChoice == playerChoice){
+        console.log("Tie!")
+    } 
+}
 
+function playGame() {
+    getComputerChoice();
+    getPlayerChoice();
+    playRound();
+}
 
+playGame()
 
 
