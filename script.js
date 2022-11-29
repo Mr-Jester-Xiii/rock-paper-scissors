@@ -36,12 +36,33 @@ function playRound() {
     (playerChoice == "Scissors" && computerChoice == "Paper") ||
     (playerChoice == "Paper" && computerChoice == "Rock")
   ) {
+    playerScore += 1;
     console.log("You win! " + playerChoice + " beats " + computerChoice);
+    console.log("You: " + playerScore + " " + "Computer: " + computerScore);
   } else if (playerChoice == computerChoice) {
-    console.log("Its a Draw!");
+    console.log("Its a Tie!");
+    console.log("You: " + playerScore + " " + "Computer: " + computerScore);
   } else {
+    computerScore += 1;
     console.log("You lose, " + computerChoice + " beats " + playerChoice);
+    console.log("You: " + playerScore + " " + "Computer: " + computerScore);
   }
 }
 
-playRound();
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+  if (playerScore > computerScore) {
+    console.log(
+      "Congratulations! You won " + playerScore + " - " + computerScore
+    );
+  } else if (computerScore > playerScore) {
+    console.log("Too bad! You lost " + playerScore + " - " + computerScore);
+  } else {
+    console.log("It's a Draw! " + playerScore + " - " + computerScore);
+  }
+  console.log('Refresh to play again');
+}
+
+game();
