@@ -37,6 +37,8 @@ function playRound() {
     (playerChoice == "Paper" && computerChoice == "Rock")
   ) {
     console.log("You win! " + playerChoice + " beats " + computerChoice);
+  } else if (playerChoice == computerChoice) {
+    console.log("Its a Draw!");
   } else {
     console.log("You lose, " + computerChoice + " beats " + playerChoice);
   }
