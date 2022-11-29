@@ -3,19 +3,21 @@ console.log('Rock, Paper or Scissors?');
 
 let computerChoice;
 let playerChoice;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let randNum = Math.floor(Math.random() * 3) + 1;
 
   switch (randNum) {
     case 1:
-      computerChoice = "Rock";
+      computerChoice = 'Rock';
       break;
     case 2:
-      computerChoice = "Paper";
+      computerChoice = 'Paper';
       break;
     case 3:
-      computerChoice = "Scissors";
+      computerChoice = 'Scissors';
       break;
   }
 
@@ -24,22 +26,25 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     playerChoice = prompt('Rock, Paper or Scissors?', '');
-    console.log(playerChoice);
+}
+
+getComputerChoice();
+getPlayerChoice();
+
+function playRound() {
+  if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
+    console.log('Test');
+  } else {
+    console.log('Test Failed');
+  }
 
 }
 
-function playRound(playerChoice, computerChoice) {
-    if (computerChoice == playerChoice){
-        console.log("Tie!")
-    } 
-}
+playRound();
 
-function playGame() {
-    getComputerChoice();
-    getPlayerChoice();
-    playRound();
-}
 
-playGame()
+
+
+
 
 
