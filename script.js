@@ -1,5 +1,5 @@
-console.log('Hello Player');
-console.log('Rock, Paper or Scissors?');
+console.log("Hello Player");
+console.log("Rock, Paper or Scissors?");
 
 let computerChoice;
 let playerChoice;
@@ -11,13 +11,13 @@ function getComputerChoice() {
 
   switch (randNum) {
     case 1:
-      computerChoice = 'Rock';
+      computerChoice = "Rock";
       break;
     case 2:
-      computerChoice = 'Paper';
+      computerChoice = "Paper";
       break;
     case 3:
-      computerChoice = 'Scissors';
+      computerChoice = "Scissors";
       break;
   }
 
@@ -25,26 +25,21 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    playerChoice = prompt('Rock, Paper or Scissors?', '');
+  playerChoice = prompt("Rock, Paper or Scissors?", "");
 }
 
-getComputerChoice();
-getPlayerChoice();
-
 function playRound() {
-  if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
-    console.log('Test');
+  getComputerChoice();
+  getPlayerChoice();
+  if (
+    (playerChoice == "Rock" && computerChoice == "Scissors") ||
+    (playerChoice == "Scissors" && computerChoice == "Paper") ||
+    (playerChoice == "Paper" && computerChoice == "Rock")
+  ) {
+    console.log("You win! " + playerChoice + " beats " + computerChoice);
   } else {
-    console.log('Test Failed');
+    console.log("You lose, " + computerChoice + " beats " + playerChoice);
   }
-
 }
 
 playRound();
-
-
-
-
-
-
-
