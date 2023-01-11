@@ -1,5 +1,11 @@
-console.log("Hello Player");
-console.log("Rock, Paper or Scissors?");
+//console.log("Hello Player");
+//console.log("Rock, Paper or Scissors?");
+
+const userScoreDiv = document.querySelector('.userscore');
+const compScoreDiv = document.querySelector('.computerscore');
+const message = document.querySelector('.message');
+
+message.textContent = 'Hello Player, Rock, Paper or Scissors?';
 
 let computerChoice;
 let playerChoice;
@@ -24,6 +30,7 @@ function getComputerChoice() {
   console.log(computerChoice);
 }
 
+
 function playRound() {
   getComputerChoice();
   if (
@@ -32,15 +39,14 @@ function playRound() {
     (playerChoice == "Paper" && computerChoice == "Rock")
   ) {
     playerScore += 1;
-    console.log("You win! " + playerChoice + " beats " + computerChoice);
-    console.log("You: " + playerScore + " " + "Computer: " + computerScore);
+    message.textContent = "You win! " + playerChoice + " beats " + computerChoice;
+    userScoreDiv.textContent = "You: " + playerScore;
   } else if (playerChoice == computerChoice) {
-    console.log("Its a Tie!");
-    console.log("You: " + playerScore + " " + "Computer: " + computerScore);
+    message.textContent = "Its a Tie!"
   } else {
     computerScore += 1;
-    console.log("You lose, " + computerChoice + " beats " + playerChoice);
-    console.log("You: " + playerScore + " " + "Computer: " + computerScore);
+    message.textContent = "You lose, " + computerChoice + " beats " + playerChoice;
+    compScoreDiv.textContent = "Comp: " + computerScore;
   }
 }
 
