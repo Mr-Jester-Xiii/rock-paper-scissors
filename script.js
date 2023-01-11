@@ -2,8 +2,8 @@ const userScoreDiv = document.querySelector(".userscore");
 const compScoreDiv = document.querySelector(".computerscore");
 const message = document.querySelector(".message");
 
-message.textContent =
-  "Hello Player, Rock, Paper or Scissors? First to 5 points wins!";
+// message.textContent =
+//   "Hello Player, Rock, Paper or Scissors? First to 5 points wins!";
 
 let computerChoice;
 let playerChoice;
@@ -25,7 +25,7 @@ function getComputerChoice() {
       break;
   }
 
-  console.log(computerChoice);
+  //console.log(computerChoice);
 }
 
 function disableBtn() {
@@ -41,6 +41,15 @@ function refreshGame() {
   });
 }
 
+function removePlayerTransition() {
+  userScoreDiv.classList.remove('playerpoint');
+}
+
+function removeCompTransition() {
+  compScoreDiv.classList.remove('comppoint');
+}
+
+
 function playRound() {
   getComputerChoice();
   if (
@@ -52,6 +61,8 @@ function playRound() {
     message.textContent =
       "You win! " + playerChoice + " beats " + computerChoice;
     userScoreDiv.textContent = "Player: " + playerScore;
+    userScoreDiv.classList.add('playerpoint');
+    setTimeout(removePlayerTransition, 300);
   } else if (playerChoice == computerChoice) {
     message.textContent = "Its a Tie!";
   } else {
@@ -59,23 +70,27 @@ function playRound() {
     message.textContent =
       "You lose, " + computerChoice + " beats " + playerChoice;
     compScoreDiv.textContent = "Computer: " + computerScore;
+    compScoreDiv.classList.add('comppoint');
+    setTimeout(removeCompTransition, 300);
   }
 
   if (playerScore === 5) {
     message.textContent =
       "Congratulations! You won " + playerScore + " - " + computerScore;
+    message.classList.add('playerpoint');
     disableBtn();
     refreshGame();
   } else if (computerScore === 5) {
     message.textContent =
       "Too bad! You lost " + playerScore + " - " + computerScore;
+      message.classList.add('comppoint');
     disableBtn();
     refreshGame();
   } else {
-    console.log("It's a Draw! " + playerScore + " - " + computerScore);
+    console.log();
   }
-  console.log(computerScore);
-  console.log(playerScore);
+  //console.log(computerScore);
+  //console.log(playerScore);
 }
 
 const rockbtn = document.querySelector("#rock");

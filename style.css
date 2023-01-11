@@ -7,4 +7,37 @@ html {
     align-items: center;
     text-align: center;;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.scoreboard{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+    height: 20px;
+    font-weight: bold;
+    transition: all .07s ease;
+}
+
+.message {
+    font-size: 16px;
+    height: 20px;
+}
+
+.playerpoint {
+    color: green;
+    transform:scale(1.1);
+    transition: all .07s ease;
+}
+
+.comppoint {
+    color: red;
+    transform: scale(1.1);
+    transition: all .07s ease;
 }
