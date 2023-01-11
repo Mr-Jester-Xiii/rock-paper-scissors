@@ -1,6 +1,3 @@
-//console.log("Hello Player");
-//console.log("Rock, Paper or Scissors?");
-
 const userScoreDiv = document.querySelector(".userscore");
 const compScoreDiv = document.querySelector(".computerscore");
 const message = document.querySelector(".message");
@@ -31,6 +28,20 @@ function getComputerChoice() {
   console.log(computerChoice);
 }
 
+function disableBtn(){
+  rockbtn.disabled = true;
+  paperbtn.disabled = true;
+  scissorsbtn.disabled = true;
+}
+
+function refreshGame() {
+  const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", () => {
+  window.location.reload();
+});
+}
+
+
 function playRound() {
   getComputerChoice();
   if (
@@ -54,9 +65,13 @@ function playRound() {
   if (playerScore === 5) {
     message.textContent =
       "Congratulations! You won " + playerScore + " - " + computerScore;
+      disableBtn();
+      refreshGame();
   } else if (computerScore === 5) {
     message.textContent =
       "Too bad! You lost " + playerScore + " - " + computerScore;
+      disableBtn();
+      refreshGame();
   } else {
     console.log("It's a Draw! " + playerScore + " - " + computerScore);
   }
@@ -64,21 +79,7 @@ function playRound() {
   console.log(playerScore);   
 }
 
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     playRound();
-//   }
-//   if (playerScore === 5) {
-//     message.textContent =
-//       "Congratulations! You won " + playerScore + " - " + computerScore;
-//   } else if (computerScore === 5) {
-//     message.textContent =
-//       "Too bad! You lost " + playerScore + " - " + computerScore;
-//   } else {
-//     console.log("It's a Draw! " + playerScore + " - " + computerScore);
-//   }
-//   console.log("Refresh to play again");
-// }
+
 
 const rockbtn = document.querySelector("#rock");
 rockbtn.addEventListener("click", () => {
