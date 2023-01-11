@@ -39,6 +39,8 @@ function refreshGame() {
   resetBtn.addEventListener("click", () => {
     window.location.reload();
   });
+
+  resetBtn.style.display = block;
 }
 
 function removePlayerTransition() {
@@ -78,6 +80,7 @@ function playRound() {
     message.textContent =
       "Congratulations! You won " + playerScore + " - " + computerScore;
     message.classList.add('playerpoint');
+    compScoreDiv.classList.add('comppoint');
     disableBtn();
     refreshGame();
   } else if (computerScore === 5) {
