@@ -28,7 +28,7 @@ function getComputerChoice() {
   console.log(computerChoice);
 }
 
-function disableBtn(){
+function disableBtn() {
   rockbtn.disabled = true;
   paperbtn.disabled = true;
   scissorsbtn.disabled = true;
@@ -36,11 +36,10 @@ function disableBtn(){
 
 function refreshGame() {
   const resetBtn = document.querySelector("#reset");
-resetBtn.addEventListener("click", () => {
-  window.location.reload();
-});
+  resetBtn.addEventListener("click", () => {
+    window.location.reload();
+  });
 }
-
 
 function playRound() {
   getComputerChoice();
@@ -52,34 +51,32 @@ function playRound() {
     playerScore += 1;
     message.textContent =
       "You win! " + playerChoice + " beats " + computerChoice;
-    userScoreDiv.textContent = "You: " + playerScore;
+    userScoreDiv.textContent = "Player: " + playerScore;
   } else if (playerChoice == computerChoice) {
     message.textContent = "Its a Tie!";
   } else {
     computerScore += 1;
     message.textContent =
       "You lose, " + computerChoice + " beats " + playerChoice;
-    compScoreDiv.textContent = "Comp: " + computerScore;
+    compScoreDiv.textContent = "Computer: " + computerScore;
   }
 
   if (playerScore === 5) {
     message.textContent =
       "Congratulations! You won " + playerScore + " - " + computerScore;
-      disableBtn();
-      refreshGame();
+    disableBtn();
+    refreshGame();
   } else if (computerScore === 5) {
     message.textContent =
       "Too bad! You lost " + playerScore + " - " + computerScore;
-      disableBtn();
-      refreshGame();
+    disableBtn();
+    refreshGame();
   } else {
     console.log("It's a Draw! " + playerScore + " - " + computerScore);
   }
   console.log(computerScore);
-  console.log(playerScore);   
+  console.log(playerScore);
 }
-
-
 
 const rockbtn = document.querySelector("#rock");
 rockbtn.addEventListener("click", () => {
