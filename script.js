@@ -25,7 +25,7 @@ function getComputerChoice() {
       break;
   }
 
-  //console.log(computerChoice);
+  console.log(computerChoice);
 }
 
 function disableBtn() {
@@ -34,23 +34,22 @@ function disableBtn() {
   scissorsbtn.disabled = true;
 }
 
-function refreshGame() {
-  const resetBtn = document.querySelector("#reset");
-  resetBtn.addEventListener("click", () => {
-    window.location.reload();
-  });
-
-  resetBtn.style.display = block;
-}
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", () => {
+  window.location.reload();
+});
 
 function removePlayerTransition() {
-  userScoreDiv.classList.remove('playerpoint');
+  userScoreDiv.classList.remove("playerpoint");
 }
 
 function removeCompTransition() {
-  compScoreDiv.classList.remove('comppoint');
+  compScoreDiv.classList.remove("comppoint");
 }
 
+function revealButton(){
+  resetBtn.style.display = "inline-flex";
+}
 
 function playRound() {
   getComputerChoice();
@@ -63,7 +62,7 @@ function playRound() {
     message.textContent =
       "You win! " + playerChoice + " beats " + computerChoice;
     userScoreDiv.textContent = "Player: " + playerScore;
-    userScoreDiv.classList.add('playerpoint');
+    userScoreDiv.classList.add("playerpoint");
     setTimeout(removePlayerTransition, 300);
   } else if (playerChoice == computerChoice) {
     message.textContent = "Its a Tie!";
@@ -72,23 +71,23 @@ function playRound() {
     message.textContent =
       "You lose, " + computerChoice + " beats " + playerChoice;
     compScoreDiv.textContent = "Computer: " + computerScore;
-    compScoreDiv.classList.add('comppoint');
+    compScoreDiv.classList.add("comppoint");
     setTimeout(removeCompTransition, 300);
   }
 
   if (playerScore === 5) {
     message.textContent =
       "Congratulations! You won " + playerScore + " - " + computerScore;
-    message.classList.add('playerpoint');
-    compScoreDiv.classList.add('comppoint');
+    message.classList.add("playerpoint");
+    compScoreDiv.classList.add("comppoint");
     disableBtn();
-    refreshGame();
+    revealButton();
   } else if (computerScore === 5) {
     message.textContent =
       "Too bad! You lost " + playerScore + " - " + computerScore;
-      message.classList.add('comppoint');
+    message.classList.add("comppoint");
     disableBtn();
-    refreshGame();
+    revealButton();
   } else {
     console.log();
   }
