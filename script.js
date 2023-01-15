@@ -112,3 +112,5 @@ scissorsbtn.addEventListener("click", () => {
   playerChoice = "Scissors";
   playRound();
 });
+
+
